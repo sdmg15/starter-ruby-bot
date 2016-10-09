@@ -19,6 +19,11 @@ client.on :hello do
   logger.debug("Connected '#{client.self['name']}' to '#{client.team['name']}' team at https://#{client.team['domain']}.slack.com.")
 end
 
+#mes test 
+client.on :reaction_added do |data| 
+  client.message channel: data['channel']['id'], text: "Réaction enregistrée #{data['user']}"
+  
+
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
   if joiner_is_bot?(client, data)
