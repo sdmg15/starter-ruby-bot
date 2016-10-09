@@ -22,6 +22,7 @@ end
 #mes test 
 client.on :reaction_added do |data| 
   client.message channel: data['channel']['id'], text: "Réaction enregistrée #{data['user']}"
+  logger.debug("#{client.self['name']} added reaction to  #{data['channel']['id']}")
 end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
@@ -53,7 +54,7 @@ client.on :message do |data|
     logger.debug("Attachment message posted")
 
   when bot_mentioned(client)
-    client.message channel: data['channel'], text: 'You really do care about me. :heart:'
+    client.message channel: data['channel'], text: 'You called ?'
     logger.debug("Bot mentioned in channel #{data['channel']}")
 
   when 'bot help', 'help' then
