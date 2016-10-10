@@ -23,6 +23,14 @@ end
 client.on :user_typing do |data| 
   client.message channel: data['channel'], text: "Vous etes ici : #{data['channel']} "
 end 
+
+client.on :channel_joined do |data| 
+  if data['channel']['id'] == "C1YCLHPC5"
+    client.message channel: data['channel']['id'], text: "Ca marche ! "
+  else 
+    client.message channel: data['channel']['id'], text: "Vous ny etes pas"
+  end 
+end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
   if joiner_is_bot?(client, data)
