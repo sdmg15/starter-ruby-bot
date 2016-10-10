@@ -21,11 +21,7 @@ end
 
 #mes tests 
 client.on :user_typing do |data| 
-  if data['channel'] == 'general'
-    client.message data['channel'], text: "Vous êtes dans généra"
-  else 
-    clien.message data['channel'], text: "Vous netes pas dans #general"
-  end 
+    client.message data['channel'], text: "Vous êtes dans général #{data['channel']}"
 end  
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
