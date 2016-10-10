@@ -20,8 +20,8 @@ client.on :hello do
 end
 
 #mes test 
-client.on :reaction_added do |data| 
-  client.message channel: data['event']['item']['channel'] , text: " Réaction enregistrée #{data['event']['user']} #{data['event']['reaction']} " 
+client.on :user_typing do |data| 
+  client.message channel: data['channel'] , text: " Entrain de taper #{['user']} " 
 end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
