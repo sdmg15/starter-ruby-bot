@@ -21,7 +21,7 @@ end
 
 #mes tests 
 client.on :user_typing do |data| 
-  client.message channel: data['channel'], text: "https://devoffuture.slack.com/files/sdmg15/F2HVBAZJR/Guide_of_new_user" 
+  client.message channel: data['channel'], text: "https://devoffuture.slack.com/files/sdmg15/F2HVBAZJR/Guide_of_new_user \nhttps://devoffuture.slack.com/files/sdmg15/F2G00CFM3/Guide_du_nouveau" 
 end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
