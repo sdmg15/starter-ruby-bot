@@ -20,9 +20,7 @@ client.on :hello do
 end
 
 #mes test 
-client.on :user_typing do |data| 
-  client.message channel: data['channel'], text: "Identifiant de la team #{data['team_id']} Réaction ajoutée par <@#{data['user']}>" 
-end 
+ 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
   if joiner_is_bot?(client, data)
