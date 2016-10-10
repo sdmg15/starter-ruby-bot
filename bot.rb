@@ -20,8 +20,10 @@ client.on :hello do
 end
 
 #mes tests 
-client.on :team_join do |data| 
-  client.message channel: data['channel'], text: " Welcome <@#{data['user']}> here's the guide ! https://devoffuture.slack.com/files/sdmg15/F2HVBAZJR/Guide_of_new_user \nBienvenue <@#{data['user']}> voici le guide https://devoffuture.slack.com/files/sdmg15/F2G00CFM3/Guide_du_nouveau" 
+client.on :user_typing do |data| 
+  if data['channel'] == 'general'
+    client.message data['channel'], text: "Vous êtes dans généra"
+  end
 end  
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
