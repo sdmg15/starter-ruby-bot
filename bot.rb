@@ -21,8 +21,7 @@ end
 
 #mes test 
 client.on :reaction_added do |data| 
-  client.message channel: data['channel']['id'], text: "Réaction enregistrée #{data['user']}"
-  logger.debug("#{client.self['name']} added reaction to  #{data['channel']['id']}")
+  client.message channel: data['event']['item']['channel'] , text: " Réaction enregistrée #{data['event']['user']} #{data['event']['reaction']} " 
 end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
