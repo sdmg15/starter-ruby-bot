@@ -19,13 +19,14 @@ client.on :hello do
   logger.debug("Connected '#{client.self['name']}' to '#{client.team['name']}' team at https://#{client.team['domain']}.slack.com.")
 end
 
-#mes test 
- 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
   if joiner_is_bot?(client, data)
     client.message channel: data['channel']['id'], text: "Thanks for the invite! I don\'t do much yet, but #{help}"
     logger.debug("#{client.self['name']} joined channel #{data['channel']['id']}")
+  else
+    logger.debug("Someone far less important than #{client.self['name']} joined #{data['channel']['id']}")
+  end
 end
 
 # listen for message event - https://api.slack.com/events/message
@@ -48,7 +49,7 @@ client.on :message do |data|
     logger.debug("Attachment message posted")
 
   when bot_mentioned(client)
-    client.message channel: data['channel'], text: 'You called ?'
+    client.message channel: data['channel'], text: 'You really do care about me. :heart:'
     logger.debug("Bot mentioned in channel #{data['channel']}")
 
   when 'bot help', 'help' then
