@@ -20,9 +20,6 @@ client.on :hello do
 end
 
 #mes tests 
-client.on :user_typing do |data| 
-  client.message channel: data['channel'], text: "Vous etes ici : #{data['channel']} "
-end 
 
 client.on :channel_joined do |data| 
     client.message channel: data['channel']['id'], text: "Ca marche ! "
