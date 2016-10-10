@@ -21,7 +21,7 @@ end
 
 #mes test 
 client.on :user_typing do |data| 
-  client.message channel: data['channel'] , text: " Entrain de taper #{data['user']['name']} " 
+  client.message channel: data['channel'] , text: " Entrain de taper <@#{data['user']}> " 
 end 
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 client.on :channel_joined do |data|
