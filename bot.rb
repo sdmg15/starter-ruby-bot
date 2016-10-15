@@ -23,7 +23,6 @@ end
 client.on :user_typing do |data|
     client.message channel: data['channel'], text: "Hey <@#{data['user']}> you're typing in #{data['channel']}"
   end
-end
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 
 # listen for message event - https://api.slack.com/events/message
