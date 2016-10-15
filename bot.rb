@@ -21,7 +21,7 @@ end
 
 #mes tests 
 client.on :channel_joined do |data|
-    client.message channel: 'C22CATB5W' , text: "Hey you're welcome in  #{data['channel']}"
+    client.message channel: 'C2KLWT9E1' , text: "Hey you're welcome in  #{data['channel']}"
   end
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 
