@@ -21,7 +21,7 @@ end
 
 #mes tests 
 client.on :user_typing do |data|
-    client.message channel: 'C1YCLHPC5' , text: "Hey you're typing"
+    client.message channel: data['channel'] , text: "Hey you're typing #{data['channel']}"
   end
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
 
