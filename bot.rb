@@ -25,7 +25,7 @@ client.on :channel_joined do |data|
     client.message channel: data['channel']['id'], text: "Thanks for the invite! I don\'t do much yet, but #{help}"
     logger.debug("#{client.self['name']} joined channel #{data['channel']['id']}")
   else
-    logger.debug("Someone far less important than #{client.self['name']} joined #{data['channel']['id']}")
+    client.message channel: data['channel']['id'], text: "Someone far less important than #{client.self['name']} joined #{data['channel']['id']}")
   end
 end
 # listen for channel_joined event - https://api.slack.com/events/channel_joined
